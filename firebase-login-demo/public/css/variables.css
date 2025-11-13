@@ -1,0 +1,93 @@
+@import url('variablesGlobales.css');
+
+.sidebar {
+    height: 100vh;
+    width: 80px;
+    background-color: var(--color1);
+    position: fixed;
+    /* Importante para que tenga su propio contexto */
+    top: 0;
+    left: 0;
+    z-index: 30;
+    /* Más alto: siempre arriba */
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100%
+}
+
+.menu li {
+    margin: 35px 0 0 0;
+}
+
+.menu img {
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+}
+
+.fa-solid {
+    color: var(--color_texto);
+}
+
+.barra-espacio {
+    margin-top: 70px;
+    width: 100%;
+    height: 5dvh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 20;
+    background-color: var(--colorB);
+    box-shadow: 31px 36px 50px -15px rgba(0, 0, 0, 0.40);
+    -webkit-box-shadow: 31px 36px 50px -15px rgba(0, 0, 0, 0.40);
+    -moz-box-shadow: 31px 36px 50px -15px rgba(0, 0, 0, 0.40);
+}
+
+.barra-espacio button {
+    background-color: var(--color2);
+    color: var(--color_texto);
+    border: none;
+    border-radius: 10px;
+    margin-right: 15px;
+    width: 150px;
+    height: 40px;
+    font-weight: bold;
+    font-size: large;
+}
+
+.nuevoGrupo:hover {
+    cursor: pointer;
+}
+
+.nuevoGrupo:active {
+    background-color: var(--color3);
+    transform: scale(0.95);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+.barra-espacio h2 {
+    margin-left: 7%;
+    color: var(--color_texto);
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1dvh;
+}
+
+.main-content {
+    background-color: var(--color_texto);
+    height: 100dvh;
+    margin-left: 80px;
+    position: relative;
+    z-index: 10;
+    padding-top: 9%;
+    padding-left: 2%;
+    background-image: url("../assets/img/Recompensas.png");
+}

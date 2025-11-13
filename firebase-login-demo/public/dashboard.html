@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png">
+    <link rel="manifest" href="./assets/img/site.webmanifest">
+    <script type="importmap">
+        {
+            "imports": {
+                "firebase/app": "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js",
+                "firebase/auth": "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js",
+                "firebase/firestore": "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js",
+                "firebase/storage": "https://www.gstatic.com/firebasejs/9.22.2/firebase-storage.js"
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img src="./assets/img/ClassHUB.png" alt="">
+        </div>
+    </nav>
+    <div class="sidebar">
+        <ul class="menu">
+            <!--Icono de usuario -->
+            <li><a href="profile.html"><img id="user-avatar" src="./assets/img/turboruca.webp" alt="" /></a></li>
+            <li><a href="chat.html"><i class="fa-solid fa-message fa-2xl"></i></a></li>
+            <li><a href="dashboard.html"><i class="fa-solid fa-people-group fa-2xl"></i></a></li>
+            <li><a href="recompensas.html"><i class="fa-solid fa-medal fa-2xl"></i></a></li>
+            <li><a href="settings.html"><i class="fa-solid fa-calendar-days fa-2xl"></i></a></li>
+            <li id="btn-logout"><i class="fa-solid fa-right-from-bracket"></i></li>
+        </ul>
+        <!-- Añadido: nombre/email en sidebar -->
+
+    </div>
+    <div class="barra-espacio">
+        <h2>Grupos</h2>
+        <button id="abrir" class="nuevoGrupo"><i class="fa-solid fa-plus"></i>Crear Grupo</button>
+    </div>
+    </div>
+    <div class="main-content">
+        <div class="grupos-container" id="listaGrupos">
+            <!-- Los grupos se cargarán aquí dinámicamente -->
+        </div>
+        <dialog id="miModal" class="modalCrear">
+            <div class="modal-header">
+                <h2>Nueva Grupo</h2>
+                <i id="cerrar" class="fa-solid fa-circle-xmark fa-xl"></i>
+            </div>
+            <div class="modal-body">
+                <!-- Nombre del grupo -->
+                <div style="grid-column: span 2;">
+                    <label>Nombre del grupo</label>
+                    <input type="text">
+                </div>
+                <!-- Descripción -->
+                <div class="descripcion">
+                    <label>Descripcion</label>
+                    <textarea rows="6"></textarea>
+                    <div class="imagen-upload">
+                        <label>Imagen</label>
+                        <div class="upload-box">↑</div>
+                    </div>
+                </div>
+                <!-- Buscar miembros -->
+                <div class="partemiembros">
+                    <label for="buscador">Buscar Miembros</label>
+                    <input type="text" id="buscador">
+                    <div class="miembros">
+                        <div class="avatar">
+                            <img src="https://i.pravatar.cc/40?img=1" alt="usuario">
+                        </div>
+                        <div class="avatar">
+                            <img src="https://i.pravatar.cc/40?img=2" alt="usuario">
+                        </div>
+                        <div class="avatar">
+                            <img src="https://i.pravatar.cc/40?img=3" alt="usuario">
+                        </div>
+                    </div>
+                </div>
+                <button id="btn-guardar">Crear Grupo</button>
+        </dialog>
+    </div>
+    <script type="module" src="./js/dashboard.js"></script>
+    <script type="module" src="./js/listarGrupos.js"></script>
+</body>
+
+</html>

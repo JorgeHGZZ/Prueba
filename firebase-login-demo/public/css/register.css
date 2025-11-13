@@ -1,0 +1,48 @@
+        body {
+            font-family: sans-serif;
+            background: #0f1724;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: #111c32;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: none;
+        }
+
+        input {
+            background: #1e293b;
+            color: white;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+        }
+
+        .error {
+            color: #ff7070;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        a {
+            color: #60a5fa;
+            text-decoration: none;
+            font-size: 14px;
+        }

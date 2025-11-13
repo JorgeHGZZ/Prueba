@@ -1,0 +1,91 @@
+/* filepath: d:\PrograBasica\POI\Prueba\login.css */
+/* CSS muy simple para centrar la caja */
+:root {
+    font-family: system-ui, Segoe UI, Roboto, "Helvetica Neue", Arial;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: #0f1724;
+    color: #e6eef8;
+}
+
+.card {
+    background: #0b1220;
+    padding: 28px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(2, 6, 23, .6);
+    width: 360px;
+}
+
+h1 {
+    font-size: 20px;
+    margin: 0 0 12px;
+}
+
+label {
+    display: block;
+    margin: 8px 0 4px;
+    font-size: 13px;
+    color: #9fb0d1;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #1f2a3a;
+    background: #071029;
+    color: #e6eef8;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 12px;
+    border-radius: 8px;
+    border: 0;
+    background: #2563eb;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.alt {
+    background: transparent;
+    border: 1px solid #2b3f61;
+    color: #cfe0ff;
+}
+
+.row {
+    display: flex;
+    gap: 8px;
+}
+
+.small {
+    font-size: 13px;
+    color: #9fb0d1;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.error {
+    color: #ff7b7b;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.user-info {
+    background: #071B2A;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 12px;
+}

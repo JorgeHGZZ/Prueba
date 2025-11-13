@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/chat.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png">
+    <link rel="manifest" href="./assets/img/site.webmanifest">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img src="./assets/img/ClassHUB.png" alt="">
+        </div>
+    </nav>
+    <div class="barra-espacio">
+        <input type="text" placeholder="Buscar..." class="buscadorPersonas" id="buscador">
+        <div id="listaBuscador"></div>
+        <button class="back-button" onclick="window.history.back();">
+            <i class="fas fa-angle-left"></i>
+            Volver
+        </button>
+    </div>
+    <div class="layout-container">
+        <div class="sidebar">
+            <ul class="menu">
+                <!--Icono de usuario -->
+                <li><a href="profile.html"><img id="user-avatar" src="./assets/img/turboruca.webp" alt="" /></a></li>
+                <li><a href="chat.html"><i class="fa-solid fa-message fa-2xl"></i></a></li>
+                <li><a href="dashboard.html"><i class="fa-solid fa-people-group fa-2xl"></i></a></li>
+                <li><a href="recompensas.html"><i class="fa-solid fa-medal fa-2xl"></i></a></li>
+                <li><a href="settings.html"><i class="fa-solid fa-calendar-days fa-2xl"></i></a></li>
+                <li id="btn-logout"><i class="fa-solid fa-right-from-bracket"></i></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="main-container">
+                <div class="left-side">
+                    <div class="lista-header">
+                        <p>Chats</p>
+                    </div>
+                    <div class="lista-usuarios">
+                        <div class="usuario">
+                            <div class="listado-avatar">
+                                <img src="./assets/img/default-avatar.png" alt="Avatar Usuario">
+                                <span class="status online" id="status"></span>
+                            </div>
+                            <div class="info-usuario">
+                                <h3>Usuario 1</h3>
+                                <p>Último mensaje...</p>
+                            </div>
+                        </div>
+                        <div class="usuario">
+                            <div class="listado-avatar">
+                                <img src="./assets/img/turboruca.webp" alt="Avatar Usuario">
+                                <span class="status online" id="status"></span>
+                            </div>
+                            <div class="info-usuario">
+                                <h3>Usuario 2</h3>
+                                <p>Último mensaje...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div class="chat-header">
+                        <h2>Usuario1</h2>
+                        <div class="iconsLlamada">
+                            <button id="btnLlamada" title="Llamada de voz"><i class="fa-solid fa-phone"></i></button>
+                            <button id="btnVideo" title="Videollamada"><i class="fa-solid fa-video"></i></button>
+                        </div>
+                    </div>
+                    <div class="video-call" id="videoCall" style="display:none;">
+                        <video id="localVideo" autoplay playsinline muted></video>
+                        <video id="remoteVideo" autoplay playsinline></video>
+                        <button id="btnColgar" class="colgar">Colgar</button>
+                    </div>
+                    <div class="chat-container">
+
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="chatText" placeholder="Escribe un mensaje...">
+                        <!-- Botón de adjuntar -->
+                        <div class="attach-container">
+                            <button title="adjuntar" id="attachBtn" class="icon-btn">
+                                <i class="fa-solid fa-paperclip"></i>
+                            </button>
+                            <!-- Dropdown oculto -->
+                            <div class="options-dropdown" id="optionsDropdown">
+                                <button title="ubicacion" id="locationBtn"><i
+                                        class="fa-solid fa-location-dot"></i></button>
+                                <label for="fileInput"><i id="btn-archivo" class="fa-solid fa-folder"></i></label>
+                                <input type="file" id="fileInput" style="display: none;">
+                                <label for="imagenInput"><i id="btn-imagen" class="fa-solid fa-image"></i></label>
+                                <input type="file" id="imagenInput" style="display: none;">
+                            </div>
+                        </div>
+                        <button title="enviar" class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="modalLlamada" class="modal-llamada" style="display: none;">
+            <div class="modal-contenido">
+                <h3 id="modalTitulo">📞 Llamada entrante</h3>
+                <p id="modalDescripcion">Alguien te está llamando...</p>
+                <div class="botones">
+                    <button id="btnAceptarLlamada" class="btn-aceptar"><i class="fa-solid fa-phone"></i>
+                        Aceptar</button>
+                    <button id="btnRechazarLlamada" class="btn-rechazar"><i class="fa-solid fa-phone-slash"></i>
+                        Rechazar</button>
+                </div>
+            </div>
+        </div>
+        <script src="./js/dropdown.js"></script>
+        <script type="module" src="./js/chatIndividual.js"></script>
+</body>
+
+</html>

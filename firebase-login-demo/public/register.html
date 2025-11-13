@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro - ChatApp</title>
+    <link rel="stylesheet" href="../public/css/register.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png">
+    <link rel="manifest" href="./assets/img/site.webmanifest">
+    <script type="importmap">
+        {
+        "imports": {
+            "firebase/app": "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js",
+            "firebase/auth": "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js",
+            "firebase/firestore": "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js",
+            "firebase/storage": "https://www.gstatic.com/firebasejs/9.22.2/firebase-storage.js"
+        }
+        }
+</script>
+</head>
+
+<body>
+
+    <div class="card">
+        <h2>Crear cuenta</h2>
+
+        <input id="nombre" placeholder="Nombre">
+        <input id="apellido" placeholder="Apellido">
+        <input id="usuario" placeholder="Nombre de usuario">
+        <input id="edad" type="number" placeholder="Edad">
+        <input id="email" type="email" placeholder="Correo electrónico">
+        <input id="password" type="password" placeholder="Contraseña">
+        <input id="foto" type="file" accept="image/*">
+
+        <button id="registerBtn">Registrar</button>
+        <div id="error" class="error"></div>
+
+        <p>¿Ya tienes cuenta? <a href="login.html">Iniciar sesión</a></p>
+    </div>
+
+    <script type="module" src="./js/register.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/grupo.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png">
+    <link rel="manifest" href="./assets/img/site.webmanifest">
+
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img src="./assets/img/ClassHUB.png" alt="">
+        </div>
+    </nav>
+    <div class="barra-espacio">
+        <a href="chatGrupo.html">
+            <h2 class="active">Chat</h2>
+        </a>
+        <a href="tareaGrupo.html">
+            <h2 class="unactive">Tarea</h2>
+        </a>
+        <button class="back-button" onclick="window.history.back();">
+            <i class="fas fa-angle-left"></i>
+            Volver
+        </button>
+    </div>
+    <div class="layout-container">
+        <div class="sidebar">
+            <ul class="menu">
+                <!--Icono de usuario -->
+                <li><a href="profile.html"><img id="user-avatar" src="./assets/img/turboruca.webp" alt="" /></a></li>
+                <li><a href="chat.html"><i class="fa-solid fa-message fa-2xl"></i></a></li>
+                <li><a href="dashboard.html"><i class="fa-solid fa-people-group fa-2xl"></i></a></li>
+                <li><a href="recompensas.html"><i class="fa-solid fa-medal fa-2xl"></i></a></li>
+                <li><a href="settings.html"><i class="fa-solid fa-calendar-days fa-2xl"></i></a></li>
+                <li id="btn-logout"><i class="fa-solid fa-right-from-bracket"></i></li>
+            </ul>
+        </div>
+        <div class="barra-datos">
+            <div class="grupo-item">
+                <p>C1</p>
+            </div>
+            <h2>Grupo 1</h2>
+            <div class="canales">
+                <div class="texto">
+                    <h4>Chat</h4>
+                    <p class="selected">General</p>
+                </div>
+                <div class="llamada">
+                    <h4>Llamada</h4>
+                    <p>General</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="chat-container">
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatText" placeholder="Escribe un mensaje...">
+                <!-- Botón de adjuntar -->
+                <div class="attach-container">
+                    <button title="adjuntar" id="attachBtn" class="icon-btn">
+                        <i class="fa-solid fa-paperclip"></i>
+                    </button>
+                    <!-- Dropdown oculto -->
+                    <div class="options-dropdown" id="optionsDropdown">
+                        <button title="ubicacion" id="locationBtn"><i class="fa-solid fa-location-dot"></i></button>
+
+                        <label for="fileInput"><i id="btn-archivo" class="fa-solid fa-folder"></i></label>
+                        <input type="file" id="fileInput" style="display: none;">
+                        <label for="imagenInput"><i id="btn-imagen" class="fa-solid fa-image"></i></label>
+                        <input type="file" id="imagenInput" style="display: none;">
+                    </div>
+                </div>
+                <button title="enviar" class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+    <script src="./js/dropdown.js"></script>
+    <script type="module" src="./js/chatGrupal.js"></script>
+</body>
+
+</html>

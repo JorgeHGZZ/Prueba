@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Login - ChatApp MVP</title>
+    <link rel="stylesheet" href="../public/css/login.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png">
+    <link rel="manifest" href="./assets/img/site.webmanifest">
+    <script type="importmap">
+        {
+            "imports": {
+                "firebase/app": "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js",
+                "firebase/auth": "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js",
+                "firebase/firestore": "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js",
+                "firebase/storage": "https://www.gstatic.com/firebasejs/9.22.2/firebase-storage.js"
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="card">
+        <h1>Iniciar sesión</h1>
+
+        <div id="auth-forms">
+            <label for="email">Correo</label>
+            <input id="email" type="email" placeholder="tucorreo@ejemplo.com" />
+
+            <label for="password">Contraseña</label>
+            <input id="password" type="password" placeholder="••••••••" />
+
+            <button id="btn-login">Iniciar sesión</button>
+
+            <div class="row" style="margin-top:10px">
+                <button id="btn-google" class="alt" style="flex:1">Ingresar con Google</button>
+            </div>
+
+            <div id="error" class="error hidden"></div>
+            <div class="small">¿Problemas? Revisa la consola del navegador para ver errores.</div>
+        </div>
+    </div>
+
+    <script type="module" src="./js/login.js"></script>
+</body>
+
+</html>
