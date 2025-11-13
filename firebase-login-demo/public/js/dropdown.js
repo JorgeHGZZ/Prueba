@@ -18,20 +18,11 @@ document.addEventListener("click", (e) => {
 });
 
 
-const usuarios = document.querySelectorAll(".lista-usuarios .usuario");
+const usuarios = document.querySelectorAll(".usuario");
 const leftSide = document.querySelector(".left-side");
 const rightSide = document.querySelector(".right-side");
 const volverBtn = document.getElementById("volverLista");
 
-usuarios.forEach(u => {
-    u.addEventListener("click", () => {
-        if (window.innerWidth <= 595) {
-            leftSide.classList.add("inactive");
-            rightSide.classList.add("active");
-            volverBtn.style.display = "inline-block";
-        }
-    });
-});
 
 volverBtn.addEventListener("click", () => {
     leftSide.classList.remove("inactive");

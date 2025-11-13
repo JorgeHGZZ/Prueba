@@ -3,7 +3,7 @@ const firebaseConfig = {
     authDomain: "classhub-7fcb1.firebaseapp.com",
     databaseURL: "https://classhub-7fcb1-default-rtdb.firebaseio.com",
     projectId: "classhub-7fcb1",
-    storageBucket: "classhub-7fcb1.appspot.com",
+    storageBucket: "classhub-7fcb1.firebasestorage.app",
     messagingSenderId: "900567668775",
     appId: "1:900567668775:web:40b5af38f8a85113d75602",
     measurementId: "G-VG4Y7LDZF6"
@@ -34,7 +34,7 @@ onAuthStateChanged(auth, async (user) => {
         escucharLlamadasEntrantes(user.uid);
         currentUser = user;
         actualizarPresencia(user);
-        console.log("Usuario autenticado:", user.uid);
+
         btnLogout.style.display = "inline-block";
         try {
             const userDocRef = doc(db, "users", user.uid);
@@ -42,6 +42,7 @@ onAuthStateChanged(auth, async (user) => {
             if (snap.exists()) {
                 const data = snap.data();
                 // si Firestore tiene foto, úsala
+                currentUser = data;
                 if (data.foto) userAvatar.src = data.foto;
             }
         } catch (e) {
@@ -229,6 +230,18 @@ async function abrirChat(usuarioSeleccionado) {
 
     //  Cargar mensajes del chat
     cargarMensajes(currentChatId);
+
+    // --- Cambiar vista en modo móvil ---
+    if (window.innerWidth <= 595) {
+        const leftSide = document.querySelector(".left-side");
+        const rightSide = document.querySelector(".right-side");
+        const volverBtn = document.getElementById("volverLista");
+
+        leftSide.classList.add("inactive");
+        rightSide.classList.add("active");
+        if (volverBtn) volverBtn.style.display = "inline-block";
+    }
+
 }
 
 
@@ -401,18 +414,19 @@ function mostrarMensaje(data) {
     }
 
     const hora = data.timestamp?.toDate?.()?.toLocaleTimeString() || "";
-
+    console.log(data);
     div.innerHTML = `
         <div class="bubble ${esMio ? "propio" : "ajeno"}">
             ${contenido}
             <time>${hora}</time>
         </div>
         <div class="avatar-container">
-            <img src="${data.usuarioImg || './assets/img/default-avatar.png'}" class="avatar" alt="avatar">
+            <img src="${data.usuarioImg}" class="avatar" alt="avatar">
         </div>
     `;
 
     chatContainer.appendChild(div);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
 
@@ -428,38 +442,38 @@ imagenInput.addEventListener("change", async e => {
     const file = e.target.files[0];
     if (!file || !currentChatId) return;
 
-    const storageRef = ref(storage, `chats/${currentChatId}/imagenes/${file.name}`);
+    const storageRef = sRef(storage, `chats/${currentChatId}/imagenes/${file.name}`);
     await uploadBytes(storageRef, file);
     const url = await getDownloadURL(storageRef);
 
     const mensajesRef = collection(db, "chats", currentChatId, "mensajes");
     await addDoc(mensajesRef, {
         uid: currentUser.uid,
+        usuarioImg: currentUser.foto,
         tipo: "imagen",
         url,
-        timestamp: serverTimestamp(),
+        timestamp: serverTimestamp()
     });
 });
-
 //  Enviar archivo
 fileInput.addEventListener("change", async e => {
     const file = e.target.files[0];
     if (!file || !currentChatId) return;
 
-    const storageRef = ref(storage, `chats/${currentChatId}/archivos/${file.name}`);
+    const storageRef = sRef(storage, `chats/${currentChatId}/archivos/${file.name}`);
     await uploadBytes(storageRef, file);
     const url = await getDownloadURL(storageRef);
 
     const mensajesRef = collection(db, "chats", currentChatId, "mensajes");
     await addDoc(mensajesRef, {
         uid: currentUser.uid,
+        usuarioImg: currentUser.foto,
         tipo: "archivo",
         nombre: file.name,
         url,
-        timestamp: serverTimestamp(),
+        timestamp: serverTimestamp()
     });
 });
-
 //  Enviar ubicación
 locationBtn.addEventListener("click", async () => {
     if (!navigator.geolocation) {
@@ -474,9 +488,10 @@ locationBtn.addEventListener("click", async () => {
         const mensajesRef = collection(db, "chats", currentChatId, "mensajes");
         await addDoc(mensajesRef, {
             uid: currentUser.uid,
+            usuarioImg: currentUser.foto,
             tipo: "ubicacion",
             url,
-            timestamp: serverTimestamp(),
+            timestamp: serverTimestamp()
         });
     });
 });
