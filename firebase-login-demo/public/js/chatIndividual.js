@@ -3,7 +3,7 @@ const firebaseConfig = {
     authDomain: "classhub-7fcb1.firebaseapp.com",
     databaseURL: "https://classhub-7fcb1-default-rtdb.firebaseio.com",
     projectId: "classhub-7fcb1",
-    storageBucket: "classhub-7fcb1.firebasestorage.app",
+    storageBucket: "classhub-7fcb1.appspot.com",
     messagingSenderId: "900567668775",
     appId: "1:900567668775:web:40b5af38f8a85113d75602",
     measurementId: "G-VG4Y7LDZF6"
