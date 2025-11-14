@@ -10,7 +10,7 @@ const firebaseConfig = {
 };
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { getAuth, onAuthStateChanged,signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 import { getFirestore, collection, addDoc, onSnapshot, orderBy, query, serverTimestamp, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 import { getDatabase, ref, onDisconnect, onValue, set } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 import { getStorage, ref as sRef, uploadBytes, getDownloadURL }
@@ -294,6 +294,7 @@ onAuthStateChanged(auth, async (user) => {
     } else {
         window.location.href = "login.html";
     }
-
-
 });
+
+
+

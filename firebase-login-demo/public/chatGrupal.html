@@ -52,11 +52,12 @@
             <div class="canales">
                 <div class="texto">
                     <h4>Chat</h4>
-                    <p class="selected">General</p>
+                    <p class="selected" id="btn-chat">General</p>
                 </div>
                 <div class="llamada">
                     <h4>Llamada</h4>
-                    <p>General</p>
+                    <p id="btn-voice" class="call-option">Voz</p>
+                    <p id="btn-video" class="call-option">Video</p>
                 </div>
             </div>
         </div>
@@ -64,7 +65,7 @@
         <div class="main-content">
             <div class="chat-container">
             </div>
-            <div class="chat-input">
+            <div class="chat-input" id="chatinput">
                 <input type="text" id="chatText" placeholder="Escribe un mensaje...">
                 <!-- Botón de adjuntar -->
                 <div class="attach-container">
@@ -83,10 +84,48 @@
                 </div>
                 <button title="enviar" class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
             </div>
+            <!-- INTERFAZ DE LLAMADA (oculta por defecto) -->
+            <div id="call-interface" class="call-interface hidden">
+                <div class="call-header">
+                    <div class="call-info">
+                        <h3 id="call-title">Llamada de grupo</h3>
+                        <p id="call-subtitle">Conectando...</p>
+                    </div>
+                    <div class="call-stats" id="call-count">0 participantes</div>
+                </div>
+
+                <div id="videos-area" class="videos-grid">
+                    <!-- Local y remotos se insertarán dinámicamente -->
+                    <div class="video-card local-card">
+                        <video id="localVideo" autoplay playsinline muted></video>
+                        <div class="video-name">Tú</div>
+                    </div>
+                </div>
+
+                <div class="call-controls">
+                    <button id="muteBtn" class="control-btn">🔇</button>
+                    <button id="camBtn" class="control-btn">📷</button>
+                    <button id="leaveBtn" class="control-btn end">📞 Colgar</button>
+                </div>
+            </div>
+
+            <!-- Modal de llamada entrante -->
+            <div id="incomingModal" class="incoming-modal hidden">
+                <div class="incoming-card">
+                    <img id="callerAvatar" src="./assets/img/default-avatar.png" alt="avatar">
+                    <h3 id="callerName">Usuario</h3>
+                    <p id="callerType">te está llamando</p>
+                    <div class="incoming-actions">
+                        <button id="acceptCall" class="accept">Aceptar</button>
+                        <button id="rejectCall" class="reject">Rechazar</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="./js/dropdown.js"></script>
     <script type="module" src="./js/chatGrupal.js"></script>
+    <script type="module" src="./js/llamadaGrupal.js"></script>
 </body>
 
 </html>
