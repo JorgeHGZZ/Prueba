@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medidas de la pantalla</title>
+    <style>
+        #resultado {
+            margin-top: 20px;
+            font-size: 20px;
+            font-family: Arial;
+            color: #333;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="mostrarResolucion()">Mostrar resolución</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        function mostrarResolucion() {
+            const ancho = window.innerWidth;
+            const alto = window.innerHeight;
+
+            document.getElementById("resultado").innerText =
+                `Ancho: ${ancho}px | Alto: ${alto}px`;
+        }
+    </script>
+
+</body>
+
+</html>

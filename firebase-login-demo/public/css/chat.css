@@ -439,7 +439,7 @@
     }
 }
 
-@media only screen and (max-width: 595px) {
+@media only screen and (max-width: 480px) {
 
     /* Contenedor general */
     .main-container {
@@ -518,7 +518,7 @@
 
     .lista-header {
         position: fixed;
-        width: 471px;
+        width: 455px;
         flex-shrink: 0;
         padding: 2.5px;
         font-size: 20px;

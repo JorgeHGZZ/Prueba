@@ -232,7 +232,7 @@ async function abrirChat(usuarioSeleccionado) {
     cargarMensajes(currentChatId);
 
     // --- Cambiar vista en modo móvil ---
-    if (window.innerWidth <= 595) {
+    if (window.innerWidth <= 480) {
         const leftSide = document.querySelector(".left-side");
         const rightSide = document.querySelector(".right-side");
         const volverBtn = document.getElementById("volverLista");
